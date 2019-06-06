@@ -1,33 +1,369 @@
-.App {
+section, article {
+  display: block;
+}
+
+.activitiesList {
+  max-width: 100%;
+  width: 1014px;
+  margin: 0 auto;
+  padding: 20px 5px;
+  box-sizing: border-box;
+}
+
+.activitiesList article {
+  background: #F4F4F4;
+  padding: 10px;
+  margin: 0 0 25px;
+}
+
+.activitiesList article:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.artLeft {
+  float: left;
+  background: #FFF;
+  width: 200px;
+  min-height: 190px;
   text-align: center;
+  position: relative;
+  z-index: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.artRight {
+  background: #FFF;
+  margin-left: 215px;
+  min-height: 190px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.artImage {
+  float:right;
+  height:190px;
+  width:240px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.artImage img {
+  display:block;
+  max-height:100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.artRight h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #253449;
+}
+
+.artContent {
+  margin-right: 250px;
+  padding: 15px 5px 15px 15px;
+  text-align: right;
+}
+
+.artContent hr {
+  height: 1px;
+  border: none;
+  background: #F4F4F4;
+  margin: 10px 0;
+}
+
+.artDescription {
+  font-size: 14px;
+}
+
+.artDescription > div {
+  min-height: 57px;
+}
+
+.artDate {
+  font-size: 14px;
+}
+
+.artDate svg {
+  color: #33A1AF;
+}
+
+.artPopular {
+  background: #F2F2F2;
+  color: #324154;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 15px auto;
+  padding: 3px 4px;
+  max-width:98%;
+  width:120px;
+  box-sizing: border-box;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.artLeftBot {
+  position: absolute;
+  width: 100%;
+  padding: 0 0 20px;
+  bottom: 0;
+  left: 0;
+}
+
+.artLeftBot span {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+
+.artLeftBot input {
+  border: 1px solid #CCC;
+  width: 70px;
+  text-align: center;
+  padding: 2px;
+  margin: 0 1px;
+  height: 17px;
+  vertical-align: top;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.artLeftBot button {
+  cursor: pointer;
+  border: none;
+  background: #E9444E;
+  color: #FFF;
+  font-weight: normal;
+  font-size: 18px;
+  padding: 1px;
+  height: 23px;
+  width: 23px;
+  vertical-align: top;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.showDescr {
+  cursor: pointer;
+  float: left;
+}
+
+.total {
+  font-size: 16px;
+  text-align: right;
+  margin-top: 3px;
+  float: right;
+}
+.total span {
+  font-weight: bold;
+  color:#33A1AF;
+}
+
+.filterField {
+  border: 1px solid #F4F4F4;
+  background: #FFF;
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0 15px 10px 0;
+  z-index: 1;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.filterField svg {
+  color: #E9444E;
+  font-size:12px;
+  margin-right: 10px;
+}
+
+.filterField > span {
+  cursor:pointer;
+  display:block;
+  padding:2px 5px;
+}
+
+.filterField ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #FFF;
+  border: 1px solid #F4F4F4;
+  width:100%;
+  border-top:1px solid #FFF;
+  position:absolute;
+  overflow: hidden;
+  height: auto;
+  max-height: 0;
+  -moz-border-radius: 0 0 2px 2px;
+  -webkit-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;
+  -webkit-transition: max-height 0.2s linear;
+  -moz-transition: max-height 0.2s linear;
+  -o-transition: max-height 0.2s linear;
+  transition: max-height 0.2s linear;
+}
+
+.filterField ul.opened {
+  max-height: 140px;
+}
+
+.filterField ul li {
+  padding: 1px 5px;
+}
+
+.filterField ul label {
+  display:block;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.filterField ul li span {
+  display:block;
+  cursor: pointer;
+}
+
+.filterField ul li.active span {
+  color: #33A1AF;
+}
+
+.showMoreButton {
+  display: block;
+  cursor: pointer;
+  background: #E8434D;
+  color:#FFF;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  padding: 8px 10px;
+  width: 200px;
+  max-width: 100%;
+  margin: 0 auto;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.showMoreButton:hover {
+  background: #E83C45;
+}
+
+@media (max-width: 845px) {
+  .artLeft {
+    width: 150px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .artRight {
+    margin-left: 165px
+  }
+}
+
+@media (max-width: 745px) {
+  .activitiesList article {
+    padding: 5px;
+  }
+
+  .artLeft {
+    width: auto;
+    float: none;
+    min-height: auto;
+    overflow: hidden;
+    padding: 10px 10px 2px;
+    text-align: left;
+  }
+
+  .artLeftBot {
+    position: static;
+    padding: 0;
+    float: right;
+    width: auto;
+  }
+
+  .artLeftBot span {
+    display:inline-block;
+    margin-right: 15px;
+  }
+
+  .artPopular {
+    display: inline-block;
+    margin: 0 10px 0 0;
+  }
+
+  .artContent {
+    padding: 5px 5px 10px 10px;
+    margin-right: 205px;
+  }
+
+  .artDescription {
+    font-size: 12px;
+  }
+
+  .artRight {
+    margin-left: 0;
+  }
+
+  .artRight h2 {
+    line-height: 1.2;
+    font-size: 16px;
+  }
+
+  .artDate {
+    font-size:12px;
+    white-space: nowrap;
+  }
+
+  .artImage {
+    height: 150px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 365px) {
+  .showDescr {
+    float: none;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .artContent hr {
+    margin: 5px 0;
+  }
+
+  .artImage {
+    height: auto;
+    width: 100%;
+    float: none;
+    display: block;
+  }
+
+  .artImage img {
+    display: block;
+    max-height: inherit;
+    max-width: 100%;
+  }
+
+  .artContent {
+    margin-right: 0;
+    padding: 5px 5px 10px;
+  }
+
+  .artPopular {
+    display: block;
+    margin: 0 auto 5px;
+  }
+
+  .total {
+    float: none;
+    margin: 0 0 3px;
+  }
+
+  .filterField {
+    margin-right: 5px;
   }
 }
