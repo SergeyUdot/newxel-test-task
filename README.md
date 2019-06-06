@@ -23,3 +23,10 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Description
+
+In the "real" project it's better to handle the data on the backend. <br>
+Frontend should only send some requests with params to backend and get sorted or paginated data. <br>
+For example: send request to /get-data?page=2 and get data for second page.<br>
+The whole data (with more than 2000 rows) should not be loaded at once.
