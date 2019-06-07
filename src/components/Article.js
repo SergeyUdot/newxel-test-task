@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Description from './Description';
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";
@@ -80,6 +81,10 @@ class Article extends React.Component {
       </article>
     )
   }
+}
+
+Article.propTypes = {
+  data: PropTypes.object
 }
 
 export default Article;

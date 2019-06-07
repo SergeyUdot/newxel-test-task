@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { faChevronLeft, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,6 +40,10 @@ class Description extends React.Component {
       </div>
     )
   }
+}
+
+Description.propTypes = {
+  content: PropTypes.string
 }
 
 export default Description;

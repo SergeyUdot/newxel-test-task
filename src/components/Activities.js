@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Article from './Article';
 
 // List of activities
@@ -39,6 +40,12 @@ class Activities extends React.Component {
       <section>{this.renderActivities()}</section>
     )
   }
+}
+
+Activities.propTypes = {
+  data: PropTypes.array,
+  sort: PropTypes.number,
+  results: PropTypes.number
 }
 
 export default Activities;
