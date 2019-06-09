@@ -16,7 +16,7 @@ if(activities.length) {
     });
   });
   categories = categories.map((item) => {
-    return {title: item, checked: true}
+    return {title: item, checked: false}
   })
 }
 
@@ -62,15 +62,19 @@ class App extends React.Component {
   }
 
   filterByCategory = (data, categories) => {
-    let selectedCategories = categories.filter((item) => {
-      return item.checked;
-    }).map((item) => {
-      return item.title;
-    });
-    let filteredData = data.filter((item) => {
-      return item.category.some(r => selectedCategories.includes(r.toLowerCase()))
-    });
-    return filteredData;
+    if(categories.every(cat => !cat.checked)) {
+      return data;
+    } else {
+      let selectedCategories = categories.filter((item) => {
+        return item.checked;
+      }).map((item) => {
+        return item.title;
+      });
+      let filteredData = data.filter((item) => {
+        return item.category.some(r => selectedCategories.includes(r.toLowerCase()))
+      });
+      return filteredData;
+    }
   }
 
   filterToggle = (filterName) => {
